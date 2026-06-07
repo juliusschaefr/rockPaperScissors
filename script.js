@@ -1,3 +1,5 @@
+playGame();
+
 function playGame() {
   function getComputerChoice() {
     let randomNumber = Math.random() * 3;
@@ -35,18 +37,19 @@ function playGame() {
   }
 
   function playRound(playerChoice, computerChoice) {
-    console.log(`
+    let resultMessage = `
 You picked ${numberToRPS(playerChoice)}.
 The computer picked ${numberToRPS(computerChoice)}.
-`);
+`;
 
     let winner = calculateWinner(playerChoice, computerChoice);
 
-    if (winner === "player") console.log("You won! Well done!");
+    if (winner === "player") resultMessage += "\nYou won! Well done!";
     else if (winner === "computer")
-      console.log("You lost. Better luck next time!");
-    else if (winner === "draw") console.log("It's a draw!");
+      resultMessage += "\nYou lost. Better luck next time!";
+    else if (winner === "draw") resultMessage += "\nIt's a draw!";
 
+    alert(resultMessage);
     return winner;
   }
 
@@ -63,9 +66,8 @@ The computer picked ${numberToRPS(computerChoice)}.
     else if (winner === "computer") computerScore++;
     else if (winner === "draw") i--;
   }
-  console.log(`
-FINAL SCORES:
-You     : ${playerScore}
+  alert(`FINAL SCORES:
+You        : ${playerScore}
 Computer: ${computerScore}
 `);
 }
