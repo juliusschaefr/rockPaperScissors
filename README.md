@@ -1,3 +1,3 @@
 # rockPaperScissors
 
-Open index.html to play:
+Open index.html to play.
